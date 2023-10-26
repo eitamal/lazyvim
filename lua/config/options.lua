@@ -1,10 +1,7 @@
 -- Options are automatically loaded before lazy.nvim startup
 -- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
 -- Add any additional options here
-vim.g.loaded_ruby_provider = 0
-vim.g.loaded_perl_provider = 0
 
--- Set wsl-clipboard for vim clipboard if running WSL
 -- Check if the current linux kernal is microsoft WSL version
 local function is_wsl()
   local version_file = io.open("/proc/version", "rb")
@@ -15,9 +12,18 @@ local function is_wsl()
   return false
 end
 
--- If current linux is under WSL then use wclip.exe
--- More info: https://github.com/memoryInject/wsl-clipboard
+-- Disable providers that are not needed
+vim.g.loaded_ruby_provider = 0
+vim.g.loaded_perl_provider = 0
+
 if is_wsl() then
+  -- If under WSL, specify the rtx managed node and python binaries as host programs
+  -- TODO: use a global variable for specifying a shim directory rather than relying on it being WSL
+  vim.g.node_host_prog = vim.trim(vim.fn.system({ "rtx", "which", "neovim-node-host" }) or "")
+  vim.g.python3_host_prog = "~/.local/share/rtx/shims/python3"
+
+  -- If current linux is under WSL then use wclip.exe
+  -- More info: https://github.com/memoryInject/wsl-clipboard
   vim.g.clipboard = {
     name = "wsl-clipboard",
     copy = {
