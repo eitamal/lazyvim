@@ -5,6 +5,11 @@ return {
     name = "catppuccin",
     opts = {
       flavour = "macchiato",
+      background = {
+        light = "latte",
+        dark = "macchiato",
+      },
+      transparent_background = true,
     },
   },
   {
