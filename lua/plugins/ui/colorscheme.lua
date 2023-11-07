@@ -20,4 +20,12 @@ return {
       colorscheme = "catppuccin",
     },
   },
+  {
+    "folke/which-key.nvim",
+    opts = {
+      window = {
+        border = "rounded",
+      },
+    },
+  },
 }
