@@ -27,10 +27,20 @@ return {
     },
     opts = {
       openai_params = {
-        temperature = 0.9,
-        top_p = 1,
-        presence_penalty = 0.6,
         model = "gpt-4-1106-preview",
+        frequency_penalty = 0.7,
+        presence_penalty = 0.4,
+        temperature = 0.6,
+        top_p = 1,
+        max_tokens = 2048,
+      },
+      openai_edit_params = {
+        model = "gpt-3.5-turbo-1106",
+        frequency_penalty = 0.8,
+        presence_penalty = 0.6,
+        temperature = 0,
+        top_p = 1,
+        max_tokens = 2048,
       },
     },
   },
