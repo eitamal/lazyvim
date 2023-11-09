@@ -13,7 +13,6 @@ wk.register({
     s = { "<cmd>ChatGPTRun summarize<CR>", "Summarize", mode = { "n", "v" } },
     f = { "<cmd>ChatGPTRun fix_bugs<CR>", "Fix Bugs", mode = { "n", "v" } },
     x = { "<cmd>ChatGPTRun explain_code<CR>", "Explain Code", mode = { "n", "v" } },
-    r = { "<cmd>ChatGPTRun roxygen_edit<CR>", "Roxygen Edit", mode = { "n", "v" } },
     l = { "<cmd>ChatGPTRun code_readability_analysis<CR>", "Code Readability Analysis", mode = { "n", "v" } },
   },
 }, { prefix = "<leader>" })
@@ -27,7 +26,6 @@ return {
       "nvim-telescope/telescope.nvim",
     },
     opts = {
-      api_key_cmd = "/home/pluto/dev/scripts/chatgpt-nvim.sh",
       openai_params = {
         temperature = 0.9,
         top_p = 1,
