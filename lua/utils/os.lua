@@ -1,9 +1,5 @@
 ---@class Config
 local defaults = {
-  which_cmd = {
-    cmd = default_os_which(),
-    args = {},
-  },
   os = 0,
 }
 
@@ -43,20 +39,7 @@ function M.os()
   return M.os_type.UNKNOWN
 end
 
---- @return string
-local function default_os_which()
-  return M.os() == M.os_type.WINDOWS and "where.exe" or "which"
 end
 
---- @param tool string
---- @param which_cmd {cmd: string, args: string[]}
---- @return string
-function M.which(tool, which_cmd)
-  local cmd = which_cmd.cmd == "" and default_os_which() or which_cmd.cmd
-  local exe = which_cmd.args or {}
-  table.insert(exe, 1, cmd)
-  table.insert(exe, tool)
-  return vim.trim(vim.fn.system(exe))
-end
 
 return M
