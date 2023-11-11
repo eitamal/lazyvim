@@ -1,19 +1,4 @@
----@class Config
-local defaults = {
-  os = 0,
-}
-
 local M = {}
-
---- @type Config
-M.opts = {}
-
---- @param opts Config|nil
-function M.setup(opts)
-  M.opts = vim.tbl_deep_extend("force", {}, defaults, opts or {})
-  M.opts.os = M.opts.os == 0 and M.os() or M.opts.os
-end
-
 M.os_type = {
   WINDOWS = 1,
   MACOS = 2,
