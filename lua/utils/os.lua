@@ -1,10 +1,10 @@
 local M = {}
 M.os_type = {
+  UNKNOWN = 0,
   WINDOWS = 1,
   MACOS = 2,
-  WINWSL = 3,
+  WSL = 3,
   LINUX = 4,
-  UNKNOWN = 5,
 }
 
 --- @return integer
