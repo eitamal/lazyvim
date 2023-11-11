@@ -1,5 +1,5 @@
-local M = {}
-M.os_type = {
+---@enum os_types
+local os_types = {
   UNKNOWN = 0,
   WINDOWS = 1,
   MACOS = 2,
@@ -7,24 +7,30 @@ M.os_type = {
   LINUX = 4,
 }
 
---- @return integer
-function M.os()
+---@type table<string, os_types>
+local sysname_to_os_type = {
+  Darwin = os_types.MACOS,
+  Windows_NT = os_types.WINDOWS,
+  Linux = os_types.LINUX,
+}
+
+--- @return os_types
+local function os()
   local uname = vim.loop.os_uname()
-  if uname.sysname == "Darwin" then
-    return M.os_type.MACOS
-  elseif uname.sysname == "Windows_NT" then
-    return M.os_type.WINDOWS
-  elseif uname.sysname == "Linux" then
-    if uname.version:find("microsoft") then
-      return M.os_type.WINWSL
-    else
-      return M.os_type.LINUX
-    end
+  local type = sysname_to_os_type[uname.sysname]
+  if not type then
+    return os_types.UNKNOWN
   end
-  return M.os_type.UNKNOWN
+  if type == os_types.LINUX and uname.version:find("microsoft") then
+    return os_types.WSL
+  end
+  return type
 end
 
-end
-
+---@class OSUtil
+local M = {
+  os = os(),
+  types = os_types,
+}
 
 return M
