@@ -21,7 +21,7 @@ local function os()
   if not type then
     return os_types.UNKNOWN
   end
-  if type == os_types.LINUX and uname.version:find("microsoft") then
+  if type == os_types.LINUX and uname.release:find("microsoft") then
     return os_types.WSL
   end
   return type
