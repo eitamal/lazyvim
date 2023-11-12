@@ -3,7 +3,7 @@ local os = require("utils.os")
 ---@type table<os_types, string>
 local os_api_cmds = {
   [os.types.WINDOWS] = "op read op://Development/openai-chatgpt.nvim/credential --no-newline",
-  [os.types.WSL] = "/home/pluto/dev/repos/auto-scripts/util/chatgpt-nvim.sh",
+  [os.types.WSL] = "pass show openai/chatgpt.nvim",
 }
 
 local wk = require("which-key")
