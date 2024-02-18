@@ -36,7 +36,7 @@ return {
     opts = {
       api_key_cmd = os_api_cmds[os.os],
       openai_params = {
-        model = "gpt-4-1106-preview",
+        model = "gpt-4o",
         frequency_penalty = 0.7,
         presence_penalty = 0.4,
         temperature = 0.6,
@@ -44,7 +44,7 @@ return {
         max_tokens = 2048,
       },
       openai_edit_params = {
-        model = "gpt-3.5-turbo-1106",
+        model = "gpt-3.5-turbo",
         frequency_penalty = 0.8,
         presence_penalty = 0.6,
         temperature = 0,

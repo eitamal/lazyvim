@@ -22,8 +22,8 @@ if is_wsl() then
   -- if utils.os() == utils.os_type.WINWSL then
   -- If under WSL, specify the rtx managed node and python binaries as host programs
   -- TODO: use a global variable for specifying a shim directory rather than relying on it being WSL
-  vim.g.node_host_prog = "~/.local/share/rtx/shims/neovim-node-host"
-  vim.g.python3_host_prog = "~/.local/share/rtx/shims/python3"
+  -- TODO: vim.g.node_host_prog = "~/.local/share/rtx/shims/neovim-node-host"
+  vim.g.python3_host_prog = "~/.pyenv/shims/python3"
 
   -- If current linux is under WSL then use wclip.exe
   -- More info: https://github.com/memoryInject/wsl-clipboard
